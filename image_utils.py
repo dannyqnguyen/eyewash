@@ -20,7 +20,7 @@ EYE_NUM_NEIGHBORS = 3
 
 
 # Define function that will do detection
-def read_and_return_mod_image(img):
+def read_and_return_mod_image(img, create_mask=False):
     """ Input = image
         Output = modified image
     """
@@ -50,13 +50,21 @@ def read_and_return_mod_image(img):
             mean = mean[:, :, np.newaxis]
             mean = mean.astype(np.uint8)
 
-            # Copy the mean image to the output image.
-            np.copyto(eye_out, mean, where=mask)
+            if create_mask:
+                # Copy the mask to the roi
+                np.copyto(eye_out, mask.astype(np.uint8))
+            else:
+                # Copy the mean image to the output image.
+                np.copyto(eye_out, mean, where=mask)
+            pass
 
     # Now get the tuples that detect the faces using the above cascade
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    img_out = img.copy()
+    if create_mask:
+        img_out = np.zeros(img.shape)
+    else:
+        img_out = img.copy()
     faces = face_cascade.detectMultiScale(gray_image, FACE_KERNEL_SIZE, FACE_NUM_NEIGHBORS)
 
     # faces are the tuples of the 4 numbers
@@ -79,6 +87,10 @@ def read_and_return_mod_image(img):
 
     else:
         process_eyes(gray_image, img, img_out)
+    if create_mask:
+        img_out[img_out==1]=2
+        img_out[img_out==0]=1
+        img_out[img_out==2]=0
     return img_out
 
 def show_img(img):
@@ -86,7 +98,7 @@ def show_img(img):
     cv2.waitKey(0)
 
 
-def resize_to_square_and_pad(desired_size, raw_img_dir, propcessed_img_dir):
+def resize_to_square_and_pad_dir(desired_size, raw_img_dir, propcessed_img_dir):
     """
     This function will look for img files in raw_img_dir. It will then create a new output propcessed_img_dir. For each
     file, this function will resize and pad to desired_size.
@@ -105,34 +117,33 @@ def resize_to_square_and_pad(desired_size, raw_img_dir, propcessed_img_dir):
         rmtree(propcessed_img_dir)
 
     mkdir(propcessed_img_dir)
-
-
-
-
-    #im_pth = "/home/jdhao/test.jpg"
     for im_pth in raw_files:
         im = cv2.imread(im_pth)
-        old_size = im.shape[:2] # old_size is in (height, width) format
-
-        ratio = float(desired_size)/max(old_size)
-        new_size = tuple([int(x*ratio) for x in old_size])
-
-        # new_size should be in (width, height) format
-
-        im = cv2.resize(im, (new_size[1], new_size[0]))
-
-        delta_w = desired_size - new_size[1]
-        delta_h = desired_size - new_size[0]
-        top, bottom = delta_h//2, delta_h-(delta_h//2)
-        left, right = delta_w//2, delta_w-(delta_w//2)
-
-        color = [0, 0, 0]
-        new_im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT,
-            value=color)
+        new_im = resize_to_square_and_pad(im, desired_size)
 
         head, tail = split(im_pth)
-
         new_pth = join(propcessed_img_dir, tail)
         cv2.imwrite(new_pth, new_im, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 
+
+def resize_to_square_and_pad(im, desired_size):
+    old_size = im.shape[:2] # old_size is in (height, width) format
+
+    ratio = float(desired_size)/max(old_size)
+    new_size = tuple([int(x*ratio) for x in old_size])
+
+    # new_size should be in (width, height) format
+
+    im = cv2.resize(im, (new_size[1], new_size[0]))
+
+    delta_w = desired_size - new_size[1]
+    delta_h = desired_size - new_size[0]
+    top, bottom = delta_h//2, delta_h-(delta_h//2)
+    left, right = delta_w//2, delta_w-(delta_w//2)
+
+    color = [0, 0, 0]
+    new_im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT,
+        value=color)
+
+    return new_im
 
