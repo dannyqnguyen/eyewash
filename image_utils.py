@@ -93,6 +93,7 @@ def read_and_return_mod_image(img, create_mask=False):
         img_out[img_out==2]=0
     return img_out
 
+import cv2
 def show_img(img):
     cv2.imshow("img", img)
     cv2.waitKey(0)
