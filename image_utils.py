@@ -4,7 +4,6 @@ from shutil import rmtree
 import cv2
 import numpy as np
 
-
 # Load the Haar cascades
 face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 eyes_cascade = cv2.CascadeClassifier('./haarcascade_eye.xml')
@@ -24,11 +23,12 @@ def read_and_return_mod_image(img, create_mask=False):
     """ Input = image
         Output = modified image
     """
-    def process_eyes(roi_gray_image, roi_color, roi_color_out):
+    def _process_eyes(roi_gray_image, roi_color, roi_color_out):
 
         eyes = eyes_cascade.detectMultiScale(roi_gray_image, EYE_KERNEL_SIZE,
                                              EYE_NUM_NEIGHBORS)
         for (ex, ey, ew, eh) in eyes:
+            cv2.rectangle(roi_color_out, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
             eye_out = roi_color_out[ey:ey + eh, ex:ex + ew]
             eye = roi_color[ey:ey + eh, ex:ex + ew]
 
@@ -53,9 +53,11 @@ def read_and_return_mod_image(img, create_mask=False):
             if create_mask:
                 # Copy the mask to the roi
                 np.copyto(eye_out, mask.astype(np.uint8))
+                #np.copyto(eye_out, np.ones(mask.shape))
             else:
                 # Copy the mean image to the output image.
                 np.copyto(eye_out, mean, where=mask)
+                pass
             pass
 
     # Now get the tuples that detect the faces using the above cascade
@@ -75,7 +77,7 @@ def read_and_return_mod_image(img, create_mask=False):
     # Now iterate over the faces and detect eyes
     if len(faces) > 0:
         for (x, y, w, h) in faces:
-            #cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            cv2.rectangle(img_out, (x, y), (x + w, y + h), (255, 0, 0), 2)
             # Arguements => image, top-left coordinates, bottomright coordinates, color, rectangle border thickness
 
             # we now need two region of interests(ROI) grey and color for eyes one to detect and another to draw rectangle
@@ -83,10 +85,10 @@ def read_and_return_mod_image(img, create_mask=False):
             roi_color = img[y:y + h, x:x + w]
             roi_color_out = img_out[y:y + h, x:x + w]
             # Detect eyes now
-            process_eyes(roi_gray_image, roi_color, roi_color_out)
+            _process_eyes(roi_gray_image, roi_color, roi_color_out)
 
     else:
-        process_eyes(gray_image, img, img_out)
+        _process_eyes(gray_image, img, img_out)
     if create_mask:
         img_out[img_out==1]=2
         img_out[img_out==0]=1
@@ -139,6 +141,25 @@ def resize_to_square_and_pad(im, desired_size):
 
     delta_w = desired_size - new_size[1]
     delta_h = desired_size - new_size[0]
+    top, bottom = delta_h//2, delta_h-(delta_h//2)
+    left, right = delta_w//2, delta_w-(delta_w//2)
+
+    color = [0, 0, 0]
+    new_im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT,
+        value=color)
+
+    return new_im
+
+def pad_to_match_im_dim(im, matching_im):
+
+    old_size =im.shape  # old_size is in (height, width, channel) format
+    new_size = matching_im.shape
+
+
+
+
+    delta_w = new_size[1] - old_size[1]
+    delta_h = new_size[0] - old_size[0]
     top, bottom = delta_h//2, delta_h-(delta_h//2)
     left, right = delta_w//2, delta_w-(delta_w//2)
 
