@@ -27,7 +27,7 @@ if isdir(args.output_dir):
     rmtree(args.output_dir)
 
 mkdir(args.output_dir)
-filename_split = splitext(args.jpg_path_in)
+filename_split = splitext(basename(args.jpg_path_in))
 
 if args.use_gan:
     img_copy_path = join(ALIGN_IN_DIR, basename(args.jpg_path_in))
@@ -77,7 +77,7 @@ if args.use_gan:
         hmcEps = 0.001,
         hmcL = 100,
         hmcAnneal = 1,
-        nIter = 1000,
+        nIter = 3000,
         imgSize = IMGSIZE,
         lam = 0.1,
         checkpointDir = 'checkpoint',
@@ -98,26 +98,26 @@ if args.use_gan:
                       checkpoint_dir=gan_args.checkpointDir, lam=gan_args.lam)
         dcgan.complete(gan_args, img_out)
 
-gan_out_dir = join(args.output_dir, 'completed')
-list_of_gan_files = glob.glob(gan_out_dir + '/*')
-latest_gan_file = max(list_of_gan_files, key = os.path.getctime)
-gan_filepath = join(args.output_dir, filename_split[0] + '_gan' + '.png')
-copyfile(latest_gan_file, gan_filepath)
-output_filepath = join(args.output_dir, filename_split[0] + '_out' + '.jpg')
-gan_pad_filepath = join(args.output_dir, filename_split[0] + '_gan_pad' + '.jpg')
+    gan_out_dir = join(args.output_dir, 'completed')
+    list_of_gan_files = glob.glob(gan_out_dir + '/*')
+    latest_gan_file = max(list_of_gan_files, key = os.path.getctime)
+    gan_filepath = join(args.output_dir, filename_split[0] + '_gan' + '.png')
+    copyfile(latest_gan_file, gan_filepath)
+    output_filepath = join(args.output_dir, filename_split[0] + '_out' + '.jpg')
+    gan_pad_filepath = join(args.output_dir, filename_split[0] + '_gan_pad' + '.jpg')
 
-im = cv2.imread(gan_filepath)
-matching_im = cv2.imread(args.jpg_path_in)
-new_im = pad_to_match_im_dim(im, matching_im)
-cv2.imwrite(gan_pad_filepath, new_im, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
+    im = cv2.imread(gan_filepath)
+    matching_im = cv2.imread(args.jpg_path_in)
+    new_im = pad_to_match_im_dim(im, matching_im)
+    cv2.imwrite(gan_pad_filepath, new_im, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 
-result = subprocess.call([
-    'python',
-    './FaceSwap/main.py',
-    '--src',
-    gan_pad_filepath,
-    '--dst',
-    args.jpg_path_in,
-    '--out',
-    output_filepath])
+    result = subprocess.call([
+        'python',
+        './FaceSwap/main.py',
+        '--src',
+        gan_pad_filepath,
+        '--dst',
+        args.jpg_path_in,
+        '--out',
+        output_filepath])
 
