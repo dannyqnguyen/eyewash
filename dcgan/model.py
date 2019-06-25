@@ -16,6 +16,11 @@ from six.moves import xrange
 from ops import *
 from utils import *
 
+import cv2
+def show_img(img):
+    cv2.imshow("img", img)
+    cv2.waitKey(0)
+
 SUPPORTED_EXTENSIONS = ["png", "jpg", "jpeg"]
 
 def dataset_files(root):
@@ -243,7 +248,7 @@ Initializing a new one.
                     self.save(config.checkpoint_dir, counter)
 
 
-    def complete(self, config):
+    def complete(self, config, custom_mask=None):
         def make_dir(name):
             # Works on python 2.7, where exist_ok arg to makedirs isn't available.
             p = os.path.join(config.outDir, name)
@@ -288,6 +293,12 @@ Initializing a new one.
         elif config.maskType == 'lowres':
             lowres_mask = np.ones(self.lowres_shape)
             mask = np.zeros(self.image_shape)
+        elif config.maskType == 'custom':
+            mask = custom_mask
+            #convert mask to binary format from RGB black
+            mask[mask==255]=1
+            assert(mask.shape == self.image_shape, "Mask shape (%s) does not match image shape(%s)".format(
+                mask.shape, self.image_shape))
         else:
             assert(False)
 
