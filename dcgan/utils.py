@@ -27,6 +27,7 @@ def save_images(images, size, image_path):
 
 def imread(path):
     #return scipy.misc.imread(path, mode='RGB').astype(np.float)
+    #return imageio.imread(path, format='JPEG-PIL').astype(np.float)
     return imageio.imread(path).astype(np.float)
 
 def merge_images(images, size):
