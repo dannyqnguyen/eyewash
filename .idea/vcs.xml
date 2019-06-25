@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FaceSwap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dcgan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dcgan-completion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dcgan_completion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/openface" vcs="Git" />
   </component>
 </project>
