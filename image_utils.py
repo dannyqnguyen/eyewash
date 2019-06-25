@@ -28,7 +28,7 @@ def read_and_return_mod_image(img, create_mask=False):
         eyes = eyes_cascade.detectMultiScale(roi_gray_image, EYE_KERNEL_SIZE,
                                              EYE_NUM_NEIGHBORS)
         for (ex, ey, ew, eh) in eyes:
-            cv2.rectangle(roi_color_out, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
+            #cv2.rectangle(roi_color_out, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
             eye_out = roi_color_out[ey:ey + eh, ex:ex + ew]
             eye = roi_color[ey:ey + eh, ex:ex + ew]
 
@@ -53,12 +53,35 @@ def read_and_return_mod_image(img, create_mask=False):
             if create_mask:
                 # Copy the mask to the roi
                 np.copyto(eye_out, mask.astype(np.uint8))
-                #np.copyto(eye_out, np.ones(mask.shape))
             else:
                 # Copy the mean image to the output image.
                 np.copyto(eye_out, mean, where=mask)
-                pass
-            pass
+
+    def _process_blue(roi_gray_image, roi_color, roi_color_out):
+
+
+        # Split image into 3 channels
+        b = roi_color[:, :, 0]
+        g = roi_color[:, :, 1]
+        r = roi_color[:, :, 2]
+
+
+        # Add the green and blue channels.
+        rg = cv2.min(r, g)
+        rg_threshold = 2.1*rg
+
+        # Simple red eye detector
+        mask = (b > rg_threshold)
+        mask = mask.astype(np.uint8) * 255
+        mask = cv2.dilate(mask, None, anchor=(-1, -1), iterations=1, borderType=1, borderValue=1)
+        mask = mask / 255
+        mask = mask[:, :, np.newaxis]
+
+
+        if create_mask:
+            # Copy the mask to the roi
+            np.copyto(roi_color_out, mask.astype(np.uint8))
+
 
     # Now get the tuples that detect the faces using the above cascade
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -77,7 +100,7 @@ def read_and_return_mod_image(img, create_mask=False):
     # Now iterate over the faces and detect eyes
     if len(faces) > 0:
         for (x, y, w, h) in faces:
-            cv2.rectangle(img_out, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            #cv2.rectangle(img_out, (x, y), (x + w, y + h), (255, 0, 0), 2)
             # Arguements => image, top-left coordinates, bottomright coordinates, color, rectangle border thickness
 
             # we now need two region of interests(ROI) grey and color for eyes one to detect and another to draw rectangle
@@ -86,16 +109,17 @@ def read_and_return_mod_image(img, create_mask=False):
             roi_color_out = img_out[y:y + h, x:x + w]
             # Detect eyes now
             _process_eyes(roi_gray_image, roi_color, roi_color_out)
+            #_process_blue(roi_gray_image, roi_color, roi_color_out)
 
     else:
         _process_eyes(gray_image, img, img_out)
+        #_process_blue(gray_image, img, img_out)
     if create_mask:
         img_out[img_out==1]=2
         img_out[img_out==0]=1
         img_out[img_out==2]=0
     return img_out
 
-import cv2
 def show_img(img):
     cv2.imshow("img", img)
     cv2.waitKey(0)
