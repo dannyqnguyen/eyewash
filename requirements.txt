@@ -1,9 +1,8 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
-dlib==19.17.0
-imageio==2.5.0
-numpy==1.16.4
-opencv-python==4.1.0.25
-openface==0.2.1
-tensorboard==1.13.1
-tensorflow-gpu==1.13.1
+dlib
+imageio
+numpy
+opencv-python
+tensorboard
+tensorflow-gpu
