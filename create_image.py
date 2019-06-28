@@ -12,10 +12,22 @@ import subprocess
 import glob
 
 
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
 parser = argparse.ArgumentParser()
 parser.add_argument("jpg_path_in", help="path to input jpg file", type=str)
 parser.add_argument("output_dir", help="dir to save outputs", type=str)
-parser.add_argument("--use_gan", help="output a detection mask and use a GAN to fill it masked portion", type=bool)
+parser.add_argument("--checkpoint_dir", help="dir to load gan checkpoint ", type=str, default='checkpoint')
+parser.add_argument("--use_gan", help="output a detection mask and use a GAN to fill it masked portion", type=str2bool,
+                    const=True, default=False, nargs='?')
 args = parser.parse_args()
 
 #GAN is trained on 128x128 img size
@@ -80,7 +92,7 @@ if args.use_gan:
         nIter = 3000,
         imgSize = IMGSIZE,
         lam = 0.1,
-        checkpointDir = 'checkpoint',
+        checkpointDir = args.checkpoint_dir,
         outDir = args.output_dir,
         outInterval = 200,
         maskType='custom',
