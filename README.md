@@ -1,32 +1,59 @@
-# Insight_Project_Framework
-Framework for machine learning projects at Insight Data Science.
+# Eyewash
+Clean Photos through AI
 
-## Motivation for this project format:
-- **Insight_Project_Framework** : Put all source code for production within structured directory
-- **tests** : Put all source code for testing in an easy to find location
-- **configs** : Enable modification of all preset variables within single directory (consisting of one or many config files for separate tasks)
-- **data** : Include example a small amount of data in the Github repository so tests can be run to validate installation
-- **build** : Include scripts that automate building of a standalone environment
-- **static** : Any images or content to include in the README or web framework if part of the pipeline
+## Project Description
+Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCv haar cascades to detect redeye and remove the affected pixels through image infilling with DCGANs.   
 
-## Setup
-Clone repository and update python path
+A google slide presenntation can be found here: [Eyewash](http://tinyurl.com/redeyewash)
+
+## Usage
+
+After cloning this repo and installing the requirements, you can run the command line as follows:
+
 ```
-repo_name=Insight_Project_Framework # URL of your new repository
-username=mrubash1 # Username for your personal github account
-git clone https://github.com/$username/$repo_name
-cd $repo_name
-echo "export $repo_name=${PWD}" >> ~/.bash_profile
-echo "export PYTHONPATH=$repo_name/src:${PYTHONPATH}" >> ~/.bash_profile
-source ~/.bash_profile
+python create_image.py data/preprocessed/redeye/051.jpg output_dir --checkpoint_dir checkpoint --use_gan True
 ```
-Create new development branch and switch onto it
+`first_argument` Path to input image.
+`second_argument` Path to create output directory where output files are stored.
+`--checkpoint_dir` Path to directory containing saved gan model checkpoint
+`--use_gan` Optional argument to feed boolean value to use the GAN to fill in blemishes. If this is not supplied or set to False, the blemishes will be filled with black pixels.  
+
+
+## DCGAN Training
+This project modifies Brandon Amos's DCGAN model. It uses the same training procedure as well. 
+
+For best results, we process the training dataset of photos through face alignment. For this we use OpenFace’s alignment tool to pre-process the images to be 64x64.
+
 ```
-branch_name=dev-readme_requisites-20180905 # Name of development branch, of the form 'dev-feature_name-date_of_creation'}}
-git checkout -b $branch_name
+./openface/util/align-dlib.py <path_to_training_images> align innerEyesAndBottomLip <path_to_save_aligned_training_images> --size 64
 ```
 
-## Initial Commit
+And finally we’ll flatten the aligned images directory so that it just contains images and no sub-directories.
+
+```
+pushd <path_to_training_images>
+find . -name '*.png' -exec mv {} . \;
+find . -type d -empty -delete
+popd
+```
+
+We’re ready to train the DCGAN. 
+
+```
+dcgan/train-dcgan.py --dataset <path_to_saved_aligned_training_images> --epoch 20
+```
+
+You can check what randomly sampled images from the generator look like in the samples directory.
+
+You can also view the TensorFlow graphs and loss functions with TensorBoard.
+
+```
+tensorboard --logdir ./logs
+```
+
+
+## Requirements
+PYTHON PATH
 Lets start with a blank slate: remove `.git` and re initialize the repo
 ```
 cd $repo_name
