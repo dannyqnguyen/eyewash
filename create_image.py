@@ -1,6 +1,6 @@
 import argparse
 import cv2
-from image_utils import read_and_return_mod_image, pad_to_match_im_dim
+from eyewash.image_utils import read_and_return_mod_image, pad_to_match_im_dim
 from os.path import isdir, splitext, join, basename
 from os import mkdir
 from shutil import rmtree, copyfile, move

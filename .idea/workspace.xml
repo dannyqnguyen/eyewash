@@ -2,316 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d062898d-a821-4650-acb9-05a7a57434c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Insight_Project_Framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Insight_Project_Framework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FaceSwap/face_points_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/FaceSwap/face_points_detection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/preprocessed/example.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/example_output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/001.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/001_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/001_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/001_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/002.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/002_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/002_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/002_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/003.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/003_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/003_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/003_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/004.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/004_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/004_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/004_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/005.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/005_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/005_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/005_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/006.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/006_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/006_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/006_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/007.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/007_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/007_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/007_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/008.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/008_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/008_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/008_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/009.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/009_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/009_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/009_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/010.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/010_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/010_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/010_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/011.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/011_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/011_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/011_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/012.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/012_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/012_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/012_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/013.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/013_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/013_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/013_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/014.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/014_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/014_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/014_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/015.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/015_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/015_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/015_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/016.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/016_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/016_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/016_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/017.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/017_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/017_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/017_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/018.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/018_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/018_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/018_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/019_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/019_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/019_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/020.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/020_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/020_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/020_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/021.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/021_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/021_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/021_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/022.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/022_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/022_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/022_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/025.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/025_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/025_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/025_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/026.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/026_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/026_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/026_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/027.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/027_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/027_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/027_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/028.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/028_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/028_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/028_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/029.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/029_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/029_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/029_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/030.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/030_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/030_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/030_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/031.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/031_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/031_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/031_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/032.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/032_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/032_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/032_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/033.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/033_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/033_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/033_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/034.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/034_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/034_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/034_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/035.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/035_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/035_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/035_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/036.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/036_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/036_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/036_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/037.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/037_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/037_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/037_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/038.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/038_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/038_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/038_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/039.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/039_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/039_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/039_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/041.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/041_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/041_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/041_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/042.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/042_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/042_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/042_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/043.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/043_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/043_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/043_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/044.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/044_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/044_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/044_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/045.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/045_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/045_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/045_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/046.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/046_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/046_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/046_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/047.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/047_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/047_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/047_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/048.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/048_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/048_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/048_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/049.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/049_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/049_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/049_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/050.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/050_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/050_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/050_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/051.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/051_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/051_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/051_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/052.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/052_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/052_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/052_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/053.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/053_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/053_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/053_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/054.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/054_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/054_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/054_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/055.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/055_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/055_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/055_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/056.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/056_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/056_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/056_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/057.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/057_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/057_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/057_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/058.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/058_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/058_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/058_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/059.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/059_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/059_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/059_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/060.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/060_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/060_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/060_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/061.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/061_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/061_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/061_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/062.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/062_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/062_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/062_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/063.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/063_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/063_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/063_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/064.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/064_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/064_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/064_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/065.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/065_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/065_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/065_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/066.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/066_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/066_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/066_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/067.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/067_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/067_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/067_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/068.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/068_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/068_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/068_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/069.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/069_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/069_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/069_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/070.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/070_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/070_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/070_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/071.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/071_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/071_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/071_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/072.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/072_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/072_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/072_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/073.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/073_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/073_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/073_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/075.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/075_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/075_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/075_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/076.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/076_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/076_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/076_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/078.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/078_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/078_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/078_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/079.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/079_color_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/079_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/redeye/079_watershed_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dcgan/._model.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/._model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dcgan/._train-dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/._train-dcgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dcgan/._utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/._utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dcgan/._model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dcgan/._train-dcgan.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dcgan/._utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/complete.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/complete.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haarcascade_eye.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/haarcascade_eye.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haarcascade_frontalface_default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/haarcascade_frontalface_default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/image_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resize_image_dir.py" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/resize_image_dir.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -321,41 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26355">
-              <caret line="1757" selection-start-line="1757" selection-end-line="1757" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_exec.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dcgan/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2010">
-              <caret line="146" column="29" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
-              <folding>
-                <element signature="e#298#329#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+            <state relative-caret-position="-435">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -363,14 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/image_utils.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eyewash/image_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -412,8 +82,9 @@
         <option value="$PROJECT_DIR$/dcgan-completion.tensorflow/complete.py" />
         <option value="$PROJECT_DIR$/dcgan/model.py" />
         <option value="$PROJECT_DIR$/FaceSwap/face_points_detection.py" />
-        <option value="$PROJECT_DIR$/create_image.py" />
         <option value="$PROJECT_DIR$/image_utils.py" />
+        <option value="$PROJECT_DIR$/create_image.py" />
+        <option value="$PROJECT_DIR$/eyewash/image_utils.py" />
       </list>
     </option>
   </component>
@@ -434,8 +105,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="Insight_Project_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Insight_Project_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="eyewash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eyewash" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -461,7 +132,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="348" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="347" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/anaconda3/bin/conda" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -516,7 +187,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_image.py" />
-      <option name="PARAMETERS" value="./Danny_Blue3.jpg output_dir --use_gan True" />
+      <option name="PARAMETERS" value="data/preprocessed/redeye/051.jpg output_dir --use_gan True" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -739,9 +410,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/create_image.py" />
-    <entry file="file://$PROJECT_DIR$/src/scratchpad.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scratchpad.py" />
     <entry file="file://$USER_HOME$/anaconda3/envs/eyewash_py27/lib/python2.7/site-packages/PIL/JpegImagePlugin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -761,16 +430,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dcgan-completion.tensorflow/model.py" />
     <entry file="file://$PROJECT_DIR$/dcgan-completion.tensorflow/complete.py" />
-    <entry file="file://$PROJECT_DIR$/resize_image_dir.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resize_image_dir.py" />
     <entry file="file://$PROJECT_DIR$/dcgan/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -841,10 +501,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/image_utils.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26355">
-          <caret line="1757" selection-start-line="1757" selection-end-line="1757" />
+        <state relative-caret-position="270">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FaceSwap/face_swap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
@@ -857,37 +525,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dcgan/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="146" column="29" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
-          <folding>
-            <element signature="e#298#329#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FaceSwap/face_swap.py">
+    <entry file="file://$PROJECT_DIR$/eyewash/image_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="60">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+        <state relative-caret-position="-435">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

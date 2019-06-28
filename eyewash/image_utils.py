@@ -5,8 +5,8 @@ import cv2
 import numpy as np
 
 # Load the Haar cascades
-face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
-eyes_cascade = cv2.CascadeClassifier('./haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('./eyewash/haarcascade_frontalface_default.xml')
+eyes_cascade = cv2.CascadeClassifier('./eyewash/haarcascade_eye.xml')
 
 # Global Variables
 FACE_KERNEL_SIZE = 1.3
