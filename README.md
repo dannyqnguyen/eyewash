@@ -13,11 +13,20 @@ After cloning this repo and installing the requirements, you can run the command
 ```
 python create_image.py data/preprocessed/redeye/051.jpg output_dir --checkpoint_dir checkpoint --use_gan True
 ```
+
 `first_argument` Path to input image.
+
 `second_argument` Path to create output directory where output files are stored.
+
 `--checkpoint_dir` Path to directory containing saved gan model checkpoint
+
 `--use_gan` Optional argument to feed boolean value to use the GAN to fill in blemishes. If this is not supplied or set to False, the blemishes will be filled with black pixels.  
 
+## Pipeline
+This GAN pipeline starts with face alignment, followed by redeye blemish detection. After that, the GAN will fill in the detected blemish pixels and finally we use FILLIN's library for faceswap back onto the original image.  
+
+## Images
+I have included some sample images to test out redeye blemish removal in `data\preprocessed\redeye`. Please note for GAN workflow that we need to do face alignment on a single subject and redeye images where there are multiple faces or cropped faces will fail this pipeline. To process these images, set the `--use_gan` flag to `False`.
 
 ## DCGAN Training
 This project modifies Brandon Amos's DCGAN model. It uses the same training procedure as well. 
@@ -53,6 +62,11 @@ tensorboard --logdir ./logs
 
 
 ## Requirements
+Eyewash was tested and developed with the following packages.
+```
+
+
+```
 PYTHON PATH
 Lets start with a blank slate: remove `.git` and re initialize the repo
 ```
@@ -61,13 +75,6 @@ rm -rf .git
 git init   
 git status
 ```  
-You'll see a list of file, these are files that git doesn't recognize. At this point, feel free to change the directory names to match your project. i.e. change the parent directory Insight_Project_Framework and the project directory Insight_Project_Framework:
-Now commit these:
-```
-git add .
-git commit -m "Initial commit"
-git push origin $branch_name
-```
 
 ## Requisites
 
@@ -151,3 +158,4 @@ pip install -r requiremnts
 # Step 1
 # Step 2
 ```
+``
