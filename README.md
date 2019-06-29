@@ -2,7 +2,9 @@
 Clean Photos through AI
 
 ## Project Description
-Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCv haar cascades to detect redeye and remove the affected pixels through image infilling with DCGANs.   
+<img src='Static/app.gif' width='430'/> 
+
+With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed it being ruined by blemishes.  Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCv HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).   
 
 A google slide presentation can be found here: [Eyewash](http://tinyurl.com/redeyewash)
 
