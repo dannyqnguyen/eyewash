@@ -33,7 +33,7 @@ conda-develop ./openface
 
 ## Usage
 
-You can run the command line as follows:
+You can run the program in the command line as follows:
 
 ```
 python create_image.py data/redeye_samples/2.jpg output_dir --checkpoint_dir checkpoint --use_gan True
@@ -51,7 +51,7 @@ python create_image.py data/redeye_samples/2.jpg output_dir --checkpoint_dir che
 This GAN pipeline starts with face alignment, followed by redeye blemish detection. After that, the GAN will fill in the detected blemish pixels and finally we use Wu Huikai's [library](https://github.com/wuhuikai/FaceSwap) for faceswap back onto the original image.  
 
 ## Images
-I have included some sample images to test out redeye blemish removal in `data\preprocessed\redeye`. Please note for GAN workflow that we need to do face alignment on a single subject and redeye images where there are multiple faces or cropped faces will fail this pipeline. To process these images, set the `--use_gan` flag to `False` and to fill the blemish pixels with black.
+I have included some sample images to test out redeye blemish removal in `data\preprocessed\redeye`. Please note for GAN workflow that we need to do face alignment on a single subject and redeye images where there are multiple faces or cropped faces will fail this pipeline. To process these images, set the `--use_gan` flag to `False` to fill the blemish pixels with black.
 
 ## DCGAN Training
 This project modifies Brandon Amos's [DCGAN model](https://github.com/bamos/dcgan-completion.tensorflow). It uses the same training procedure as well. 
