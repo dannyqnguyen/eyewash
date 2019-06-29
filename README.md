@@ -4,14 +4,40 @@ Clean Photos through AI
 ## Project Description
 Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCv haar cascades to detect redeye and remove the affected pixels through image infilling with DCGANs.   
 
-A google slide presenntation can be found here: [Eyewash](http://tinyurl.com/redeyewash)
+A google slide presentation can be found here: [Eyewash](http://tinyurl.com/redeyewash)
+
+## Setup
+
+Clone this repo:
+
+```
+git clone https://github.com/dannyqnguyen/eyewash.git eyewash
+cd eyewash
+```
+
+Install requirements
+```
+pip install -r requirements.txt
+```
+
+Add the following libraries to your PYTHONPATH. To do this in a conda enviornment, run the following commands:
+
+```
+conda-develop ./eyewash
+conda-develop ./dcgan
+conda-develop ./FaceSwap
+conda-develop ./openface/util
+conda-develop ./openface
+```
+
 
 ## Usage
 
-After cloning this repo and installing the requirements, you can run the command line as follows:
+
+you can run the command line as follows:
 
 ```
-python create_image.py data/preprocessed/redeye/051.jpg output_dir --checkpoint_dir checkpoint --use_gan True
+python create_image.py data/redeye_samples/2.jpg output_dir --checkpoint_dir checkpoint --use_gan True
 ```
 
 `first_argument` Path to input image.
@@ -23,15 +49,15 @@ python create_image.py data/preprocessed/redeye/051.jpg output_dir --checkpoint_
 `--use_gan` Optional argument to feed boolean value to use the GAN to fill in blemishes. If this is not supplied or set to False, the blemishes will be filled with black pixels.  
 
 ## Pipeline
-This GAN pipeline starts with face alignment, followed by redeye blemish detection. After that, the GAN will fill in the detected blemish pixels and finally we use FILLIN's library for faceswap back onto the original image.  
+This GAN pipeline starts with face alignment, followed by redeye blemish detection. After that, the GAN will fill in the detected blemish pixels and finally we use Wu Huikai's [library](https://github.com/wuhuikai/FaceSwap) for faceswap back onto the original image.  
 
 ## Images
 I have included some sample images to test out redeye blemish removal in `data\preprocessed\redeye`. Please note for GAN workflow that we need to do face alignment on a single subject and redeye images where there are multiple faces or cropped faces will fail this pipeline. To process these images, set the `--use_gan` flag to `False`.
 
 ## DCGAN Training
-This project modifies Brandon Amos's DCGAN model. It uses the same training procedure as well. 
+This project modifies Brandon Amos's [DCGAN model](https://github.com/bamos/dcgan-completion.tensorflow). It uses the same training procedure as well. 
 
-For best results, we process the training dataset of photos through face alignment. For this we use OpenFace’s alignment tool to pre-process the images to be 64x64.
+For best results, we process the training dataset of photos through face alignment. For this we use OpenFace’s alignment [library](https://cmusatyalab.github.io/openface/) to pre-process the images to be 64x64.
 
 ```
 ./openface/util/align-dlib.py <path_to_training_images> align innerEyesAndBottomLip <path_to_save_aligned_training_images> --size 64
@@ -158,4 +184,4 @@ pip install -r requiremnts
 # Step 1
 # Step 2
 ```
-``
+`
