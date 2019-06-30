@@ -4,6 +4,7 @@ from shutil import rmtree
 import cv2
 import numpy as np
 
+
 # Load the Haar cascades
 face_cascade = cv2.CascadeClassifier('./eyewash/haarcascade_frontalface_default.xml')
 eyes_cascade = cv2.CascadeClassifier('./eyewash/haarcascade_eye.xml')
@@ -20,68 +21,15 @@ EYE_NUM_NEIGHBORS = 3
 
 # Define function that will do detection
 def read_and_return_mod_image(img, create_mask=False):
-    """ Input = image
-        Output = modified image
+    """ 
+    Main function to read an image and return a modified img. If create_mask is False, 
+    modification will be to fix red pixels with black. If create_mask is True, then return
+    segmented mask of blemishes.
+
+    :param img: cv2 img
+    :param create_mask: optional boolean flag to switch to produce an image mask of segmented blemishes 
+    :return: cv2 img
     """
-    def _process_eyes(roi_gray_image, roi_color, roi_color_out):
-
-        eyes = eyes_cascade.detectMultiScale(roi_gray_image, EYE_KERNEL_SIZE,
-                                             EYE_NUM_NEIGHBORS)
-        for (ex, ey, ew, eh) in eyes:
-            #cv2.rectangle(roi_color_out, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
-            eye_out = roi_color_out[ey:ey + eh, ex:ex + ew]
-            eye = roi_color[ey:ey + eh, ex:ex + ew]
-
-            # Split eye image into 3 channels
-            b = eye[:, :, 0]
-            g = eye[:, :, 1]
-            r = eye[:, :, 2]
-
-            # Add the green and blue channels.
-            bg = cv2.max(b, g)
-            bg_threshold = 1.65*bg
-
-            # Simple red eye detector
-            mask = (r > bg_threshold)
-
-
-            mean = bg / 2
-            mask = mask[:, :, np.newaxis]
-            mean = mean[:, :, np.newaxis]
-            mean = mean.astype(np.uint8)
-
-            if create_mask:
-                # Copy the mask to the roi
-                np.copyto(eye_out, mask.astype(np.uint8))
-            else:
-                # Copy the mean image to the output image.
-                np.copyto(eye_out, mean, where=mask)
-
-    def _process_blue(roi_gray_image, roi_color, roi_color_out):
-
-
-        # Split image into 3 channels
-        b = roi_color[:, :, 0]
-        g = roi_color[:, :, 1]
-        r = roi_color[:, :, 2]
-
-
-        # Add the green and blue channels.
-        rg = cv2.min(r, g)
-        rg_threshold = 2.1*rg
-
-        # Simple red eye detector
-        mask = (b > rg_threshold)
-        mask = mask.astype(np.uint8) * 255
-        mask = cv2.dilate(mask, None, anchor=(-1, -1), iterations=1, borderType=1, borderValue=1)
-        mask = mask / 255
-        mask = mask[:, :, np.newaxis]
-
-
-        if create_mask:
-            # Copy the mask to the roi
-            np.copyto(roi_color_out, mask.astype(np.uint8))
-
 
     # Now get the tuples that detect the faces using the above cascade
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -108,12 +56,12 @@ def read_and_return_mod_image(img, create_mask=False):
             roi_color = img[y:y + h, x:x + w]
             roi_color_out = img_out[y:y + h, x:x + w]
             # Detect eyes now
-            _process_eyes(roi_gray_image, roi_color, roi_color_out)
-            #_process_blue(roi_gray_image, roi_color, roi_color_out)
+            process_eyes(roi_gray_image, roi_color, roi_color_out, create_mask)
+            #process_blue(roi_gray_image, roi_color, roi_color_out, create_mask)
 
     else:
-        _process_eyes(gray_image, img, img_out)
-        #_process_blue(gray_image, img, img_out)
+        process_eyes(gray_image, img, img_out, create_mask)
+        #process_blue(gray_image, img, img_out, create_mask)
     if create_mask:
         img_out[img_out==1]=2
         img_out[img_out==0]=1
@@ -121,8 +69,97 @@ def read_and_return_mod_image(img, create_mask=False):
     return img_out
 
 def show_img(img):
+    """
+    Helper function to print images to screen. Useful for debugging
+
+    :param img: cv2 img
+    :return: None
+    """
     cv2.imshow("img", img)
     cv2.waitKey(0)
+
+def process_blue(roi_gray_image, roi_color, roi_color_out):
+    """
+    Image detection function to detect and return segmented mask of blue pixels in roi_color_out
+
+    :param roi_gray_image: grayscale version cv2 image used for detection.
+    :param roi_color: color version of cv2 image used for detection
+    :param roi_color_out: color version of cv2 image for output
+    :param create_mask: flag to create segmented mask
+    :return: None (roi_color_out will be modified)
+
+    """
+
+
+    # Split image into 3 channels
+    b = roi_color[:, :, 0]
+    g = roi_color[:, :, 1]
+    r = roi_color[:, :, 2]
+
+
+    # Add the green and blue channels.
+    rg = cv2.min(r, g)
+    rg_threshold = 2.1*rg
+
+    # Simple red eye detector
+    mask = (b > rg_threshold)
+    mask = mask.astype(np.uint8) * 255
+    mask = cv2.dilate(mask, None, anchor=(-1, -1), iterations=1, borderType=1, borderValue=1)
+    mask = mask / 255
+    mask = mask[:, :, np.newaxis]
+
+
+    if create_mask:
+        # Copy the mask to the roi
+        np.copyto(roi_color_out, mask.astype(np.uint8))
+
+
+
+
+def process_eyes(roi_gray_image, roi_color, roi_color_out, create_mask):
+    """
+    Image detection function to detect and return segmented mask of blue pixels in roi_color_out
+
+    :param roi_gray_image: grayscale version cv2 image used for detection.
+    :param roi_color: color version of cv2 image used for detection
+    :param roi_color_out: color version of cv2 image for output
+    :param create_mask: flag to create segmented mask
+    :return: None (roi_color_out will be modified)
+
+    """
+
+    eyes = eyes_cascade.detectMultiScale(roi_gray_image, EYE_KERNEL_SIZE,
+                                            EYE_NUM_NEIGHBORS)
+    for (ex, ey, ew, eh) in eyes:
+        #cv2.rectangle(roi_color_out, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
+        eye_out = roi_color_out[ey:ey + eh, ex:ex + ew]
+        eye = roi_color[ey:ey + eh, ex:ex + ew]
+
+        # Split eye image into 3 channels
+        b = eye[:, :, 0]
+        g = eye[:, :, 1]
+        r = eye[:, :, 2]
+
+        # Add the green and blue channels.
+        bg = cv2.max(b, g)
+        bg_threshold = 1.65*bg
+
+        # Simple red eye detector
+        mask = (r > bg_threshold)
+
+
+        mean = bg / 2
+        mask = mask[:, :, np.newaxis]
+        mean = mean[:, :, np.newaxis]
+        mean = mean.astype(np.uint8)
+
+        if create_mask:
+            # Copy the mask to the roi
+            np.copyto(eye_out, mask.astype(np.uint8))
+        else:
+            # Copy the mean image to the output image.
+            np.copyto(eye_out, mean, where=mask)
+
 
 
 def resize_to_square_and_pad_dir(desired_size, raw_img_dir, propcessed_img_dir):
@@ -154,6 +191,14 @@ def resize_to_square_and_pad_dir(desired_size, raw_img_dir, propcessed_img_dir):
 
 
 def resize_to_square_and_pad(im, desired_size):
+    """
+    This function will take an cv2 img resize and pad to desired_size (same widht and height).
+
+    :param im: cv2 img
+    :param desired_size: desired pixel size of image width and height
+    :return: new_im (cv2 img)
+    """
+
     old_size = im.shape[:2] # old_size is in (height, width) format
 
     ratio = float(desired_size)/max(old_size)
@@ -175,12 +220,17 @@ def resize_to_square_and_pad(im, desired_size):
     return new_im
 
 def pad_to_match_im_dim(im, matching_im):
+    """
+    This function will take an cv2 img and pad to match dimensions of another cv2 img.
+
+    :param im: cv2 img
+    :param matching_im: cv2 img to find dimensions and pad to desired dimensions
+    :return: new_im (cv2 img)
+    """
+
 
     old_size =im.shape  # old_size is in (height, width, channel) format
     new_size = matching_im.shape
-
-
-
 
     delta_w = new_size[1] - old_size[1]
     delta_h = new_size[0] - old_size[0]
