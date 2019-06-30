@@ -1,18 +1,26 @@
+import os
+import subprocess
 import argparse
-import cv2
-from eyewash.image_utils import read_and_return_mod_image, pad_to_match_im_dim
 from os.path import isdir, splitext, join, basename
-from os import mkdir
+from os import mkdir, stat
+from os import stat as os_stat
+import stat
+import errno
+import glob
 from shutil import rmtree, copyfile, move
 import argparse
-import os
+
 import tensorflow as tf
+import cv2
+
 from dcgan.model import DCGAN
-import subprocess
-import glob
+from eyewash.image_utils import read_and_return_mod_image, pad_to_match_im_dim
 
 
 def str2bool(v):
+    """
+    Helper function to deal with booleans using argparse
+    """
     if isinstance(v, bool):
        return v
     if v.lower() in ('yes', 'true', 't', 'y', '1'):
@@ -100,7 +108,11 @@ if args.use_gan:
         imgs = [img_aligned_path]
     )
 
-    assert(os.path.exists(gan_args.checkpointDir))
+    try:
+        dir_exists = stat.S_ISDIR(os_stat(gan_args.checkpointDir).st_mode)
+    except OSError, e:
+        if e.errno == errno.ENOENT:
+            print("checkpointDir: %s does not exists".format(gan_args.checkpointDir))
 
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
