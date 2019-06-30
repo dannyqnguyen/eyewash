@@ -4,7 +4,7 @@ Clean Photos through AI
 ## Project Description
 <img src='Static/app.gif' width='430'/> 
 
-With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCv HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).   
+With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect. Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCV HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).   
 
 ### Sample Results
 
@@ -16,7 +16,7 @@ With the advent of powerful cameras within smartphones, photography is becoming 
 
 The input is on the left and the output image is on the right.
 
-A google slide presentation can be found here: [Eyewash](http://tinyurl.com/redeyewash)
+A google slide presentation on the project can be found here: [Eyewash](http://tinyurl.com/redeyewash)
 
 ## Setup
 
@@ -65,7 +65,12 @@ This GAN pipeline starts with face alignment, followed by redeye blemish detecti
 ## Images
 I have included some sample images to test out redeye blemish removal in `data\preprocessed\redeye`. Please note for GAN workflow that we need to do face alignment on a single subject and redeye images where there are multiple faces or cropped faces will fail this pipeline. To process these images, set the `--use_gan` flag to `False` to fill the blemish pixels with black.
 
-## DCGAN Training
+## Extensibility
+<img src='Static/blue.jpg' width='350'/> <img src='Static/blue_out.jpg' width='350'/> 
+
+This project can be extended to other detect other blemishes. By using the `process_blue` function in `eyewash\image_utils.py`, we can detect and segment on blue pixels to use the pipeline remove blemishes other than redeye.
+
+# DCGAN Training
 This project modifies Brandon Amos's [DCGAN model](https://github.com/bamos/dcgan-completion.tensorflow). It uses the same training procedure as well. 
 
 For best results, we process the training dataset of photos through face alignment. For this we use OpenFace’s alignment [library](https://cmusatyalab.github.io/openface/) to pre-process the images to be 64x64.
