@@ -8,11 +8,11 @@ With the advent of powerful cameras within smartphones, photography is becoming 
 
 ### Sample Results
 
-<img src='Static/038.jpg' width='200'/> <img src='Static/038_out.jpg' width='200'/> 
+<img src='Static/038.jpg' width='350'/> <img src='Static/038_out.jpg' width='350'/> 
 
-<img src='Static/2.jpg' width='200'/> <img src='Static/2_out.jpg' width='200'/> 
+<img src='Static/2.jpg' width='350'/> <img src='Static/2_out.jpg' width='350'/> 
 
-<img src='Static/1.jpg' width='200'/> <img src='Static/1_out.jpg' width='200'/> 
+<img src='Static/1.jpg' width='350'/> <img src='Static/1_out.jpg' width='350'/> 
 
 The input is on the left and the output image is on the right.
 
