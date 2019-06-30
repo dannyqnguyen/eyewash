@@ -1,4 +1,8 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
-
-streamlit
+dlib
+imageio
+numpy
+opencv-python
+tensorboard
+tensorflow-gpu

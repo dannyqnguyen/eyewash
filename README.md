@@ -1,126 +1,116 @@
-# Insight_Project_Framework
-Framework for machine learning projects at Insight Data Science.
+# Eyewash
+Clean Photos through AI
 
-## Motivation for this project format:
-- **Insight_Project_Framework** : Put all source code for production within structured directory
-- **tests** : Put all source code for testing in an easy to find location
-- **configs** : Enable modification of all preset variables within single directory (consisting of one or many config files for separate tasks)
-- **data** : Include example a small amount of data in the Github repository so tests can be run to validate installation
-- **build** : Include scripts that automate building of a standalone environment
-- **static** : Any images or content to include in the README or web framework if part of the pipeline
+## Project Description
+<img src='Static/app.gif' width='430'/> 
+
+With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect as seen in the animation above. Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCV HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).   
+
+### Sample Results
+
+<img src='Static/038.jpg' width='350'/> <img src='Static/038_out.jpg' width='350'/> 
+
+<img src='Static/2.jpg' width='350'/> <img src='Static/2_out.jpg' width='350'/> 
+
+<img src='Static/1.jpg' width='350'/> <img src='Static/1_out.jpg' width='350'/> 
+
+The input is on the left and the output image is on the right.
+
+A google slide presentation on the project can be found here: [Eyewash](http://tinyurl.com/redeyewash)
 
 ## Setup
-Clone repository and update python path
+
+Clone this repo:
+
 ```
-repo_name=Insight_Project_Framework # URL of your new repository
-username=mrubash1 # Username for your personal github account
-git clone https://github.com/$username/$repo_name
-cd $repo_name
-echo "export $repo_name=${PWD}" >> ~/.bash_profile
-echo "export PYTHONPATH=$repo_name/src:${PYTHONPATH}" >> ~/.bash_profile
-source ~/.bash_profile
-```
-Create new development branch and switch onto it
-```
-branch_name=dev-readme_requisites-20180905 # Name of development branch, of the form 'dev-feature_name-date_of_creation'}}
-git checkout -b $branch_name
+git clone https://github.com/dannyqnguyen/eyewash.git eyewash
+cd eyewash
 ```
 
-## Initial Commit
-Lets start with a blank slate: remove `.git` and re initialize the repo
+Install requirements:
 ```
-cd $repo_name
-rm -rf .git   
-git init   
-git status
-```  
-You'll see a list of file, these are files that git doesn't recognize. At this point, feel free to change the directory names to match your project. i.e. change the parent directory Insight_Project_Framework and the project directory Insight_Project_Framework:
-Now commit these:
-```
-git add .
-git commit -m "Initial commit"
-git push origin $branch_name
+pip install -r requirements.txt
 ```
 
-## Requisites
+Add the following libraries to your PYTHONPATH. To do this in a conda enviornment, run the following commands:
 
-- List all packages and software needed to build the environment
-- This could include cloud command line tools (i.e. gsutil), package managers (i.e. conda), etc.
-
-#### Dependencies
-
-- [Streamlit](streamlit.io)
-
-#### Installation
-To install the package above, pleae run:
-```shell
-pip install -r requiremnts
+```
+conda-develop ./eyewash
+conda-develop ./dcgan
+conda-develop ./FaceSwap
+conda-develop ./openface/util
+conda-develop ./openface
 ```
 
-## Build Environment
-- Include instructions of how to launch scripts in the build subfolder
-- Build scripts can include shell scripts or python setup.py files
-- The purpose of these scripts is to build a standalone environment, for running the code in this repository
-- The environment can be for local use, or for use in a cloud environment
-- If using for a cloud environment, commands could include CLI tools from a cloud provider (i.e. gsutil from Google Cloud Platform)
-```
-# Example
 
-# Step 1
-# Step 2
+## Usage
+
+You can run the program in the command line as follows:
+
+```
+python create_image.py data/redeye_samples/2.jpg output_dir --checkpoint_dir checkpoint --use_gan True
 ```
 
-## Configs
-- We recommond using either .yaml or .txt for your config files, not .json
-- **DO NOT STORE CREDENTIALS IN THE CONFIG DIRECTORY!!**
-- If credentials are needed, use environment variables or HashiCorp's [Vault](https://www.vaultproject.io/)
+`first_argument` Path to input image.
 
+`second_argument` Path to create output directory where output files are stored.
 
-## Test
-- Include instructions for how to run all tests after the software is installed
+`--checkpoint_dir` Path to directory containing saved gan model checkpoint
+
+`--use_gan` Optional argument to feed boolean value to use the GAN to fill in blemishes. If this is not supplied or set to False, the blemishes will be filled with black pixels.  
+
+## Pipeline
+This GAN pipeline starts with face alignment, followed by redeye blemish detection. After that, the GAN will fill in the detected blemish pixels and finally we use Wu Huikai's [library](https://github.com/wuhuikai/FaceSwap) for faceswap back onto the original image.  
+
+## Images
+I have included some sample images to test out redeye blemish removal in `data\preprocessed\redeye`. Please note for GAN workflow that we need to do face alignment on a single subject and redeye images where there are multiple faces or cropped faces will fail this pipeline. To process these images, set the `--use_gan` flag to `False` to fill the blemish pixels with black.
+
+## Extensibility
+<img src='Static/blue.jpg' width='350'/> <img src='Static/blue_out.jpg' width='350'/> 
+
+This project can be extended to other detect other blemishes. By using the `process_blue` function in `eyewash\image_utils.py`, we can detect and segment on blue pixels to use the pipeline remove blemishes other than redeye.
+
+# DCGAN Training
+This project modifies Brandon Amos's [DCGAN model](https://github.com/bamos/dcgan-completion.tensorflow). It uses the same training procedure as well. 
+
+For best results, we process the training dataset of photos through face alignment. For this we use OpenFace’s alignment [library](https://cmusatyalab.github.io/openface/) to pre-process the images to be 64x64.
+
 ```
-# Example
-
-# Step 1
-# Step 2
-```
-
-## Run Inference
-- Include instructions on how to run inference
-- i.e. image classification on a single image for a CNN deep learning project
-```
-# Example
-
-# Step 1
-# Step 2
-```
-
-## Build Model
-- Include instructions of how to build the model
-- This can be done either locally or on the cloud
-```
-# Example
-
-# Step 1
-# Step 2
+./openface/util/align-dlib.py <path_to_training_images> align innerEyesAndBottomLip <path_to_save_aligned_training_images> --size 64
 ```
 
-## Serve Model
-- Include instructions of how to set up a REST or RPC endpoint
-- This is for running remote inference via a custom model
-```
-# Example
+And finally we’ll flatten the aligned images directory so that it just contains images and no sub-directories.
 
-# Step 1
-# Step 2
+```
+pushd <path_to_training_images>
+find . -name '*.png' -exec mv {} . \;
+find . -type d -empty -delete
+popd
 ```
 
-## Analysis
-- Include some form of EDA (exploratory data analysis)
-- And/or include benchmarking of the model and results
-```
-# Example
+We’re ready to train the DCGAN. 
 
-# Step 1
-# Step 2
 ```
+dcgan/train-dcgan.py --dataset <path_to_saved_aligned_training_images> --epoch 20
+```
+
+You can check what randomly sampled images from the generator look like in the samples directory.
+
+You can also view the TensorFlow graphs and loss functions with TensorBoard.
+
+```
+tensorboard --logdir ./logs
+```
+
+
+## Requirements
+Eyewash was tested and developed with the following packages using Python 2.7.
+```
+dlib
+imageio
+numpy
+opencv-python
+tensorboard
+tensorflow-gpu
+```
+
