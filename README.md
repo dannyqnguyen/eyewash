@@ -14,7 +14,7 @@ Eyewash is a package to automatically remove blemishes from portrait photos. Use
 
 ### Sample Results
 
-__Before__ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  &emsp; &emsp; &emsp; __After__
+__Before__ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; __After__
 
 <img src='Static/038.jpg' width='350'/> <img src='Static/038_out.jpg' width='350'/> 
 
