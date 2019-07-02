@@ -4,9 +4,9 @@ Clean Photos through AI
 ## Project Description
 
 
-With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect as seen in the animation below. 
+With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect
 
-Example of a current app to remove blemises
+Example of using a current app to remove redeye blemish:
 
 <img src='Static/app.gif' width='430'/> 
 
@@ -14,7 +14,7 @@ Eyewash is a package to automatically remove blemishes from portrait photos. Use
 
 ### Sample Results
 
-__Before__                                 __After__
+__Before__ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  __After__
 
 <img src='Static/038.jpg' width='350'/> <img src='Static/038_out.jpg' width='350'/> 
 
