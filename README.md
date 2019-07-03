@@ -33,6 +33,11 @@ Clone this repo:
 git clone https://github.com/dannyqnguyen/eyewash.git eyewash
 cd eyewash
 ```
+Create a new conda enviornment with Python 2.7:
+```
+conda create -n eyewash python=2.7
+conda activate eyewash
+```
 
 Install requirements:
 ```
@@ -42,6 +47,7 @@ pip install -r requirements.txt
 Add the following libraries to your PYTHONPATH. To do this in a conda enviornment, run the following commands:
 
 ```
+conda install conda-build
 conda-develop ./eyewash
 conda-develop ./dcgan
 conda-develop ./FaceSwap
