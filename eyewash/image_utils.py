@@ -1,13 +1,24 @@
 from os import listdir, rename, mkdir
 from os.path import isfile, join, isdir, split
+from collections import OrderedDict
 from shutil import rmtree
 import cv2
 import numpy as np
+from imutils import face_utils
+import dlib
+import imutils
+
 
 
 # Load the Haar cascades
 face_cascade = cv2.CascadeClassifier('./eyewash/haarcascade_frontalface_default.xml')
 eyes_cascade = cv2.CascadeClassifier('./eyewash/haarcascade_eye.xml')
+
+# Load dlib face detectyors
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor('./eyewash/shape_predictor_68_face_landmarks.dat')
+
+
 
 # Global Variables
 FACE_KERNEL_SIZE = 1.3
@@ -17,10 +28,20 @@ EYE_NUM_NEIGHBORS = 3
 # KERNEL_SIZE is the size of the image reduced when applying the detection
 # NUM_NEIGHBORS is the num of neighbors after which we accept that is a face
 
-
+# define a dictionary that maps the indexes of the facial
+# landmarks to specific face regions
+FACIAL_LANDMARKS_IDXS = OrderedDict([
+	("mouth", (48, 68)),
+	("right_eyebrow", (17, 22)),
+	("left_eyebrow", (22, 27)),
+	("right_eye", (36, 42)),
+	("left_eye", (42, 48)),
+	("nose", (27, 35)),
+	("jaw", (0, 17))
+])
 
 # Define function that will do detection
-def read_and_return_mod_image(img, create_mask=False):
+def read_and_return_mod_image(img, create_mask=False, landmark_list =[]):
     """ 
     Main function to read an image and return a modified img. If create_mask is False, 
     modification will be to fix red pixels with black. If create_mask is True, then return
@@ -62,6 +83,8 @@ def read_and_return_mod_image(img, create_mask=False):
     else:
         process_eyes(gray_image, img, img_out, create_mask)
         #process_blue(gray_image, img, img_out, create_mask)
+    if create_mask and landmark_list:
+        process_face_landmarks(gray_image, img_out, landmark_list)
     if create_mask:
         img_out[img_out==1]=2
         img_out[img_out==0]=1
@@ -160,6 +183,47 @@ def process_eyes(roi_gray_image, roi_color, roi_color_out, create_mask):
             # Copy the mean image to the output image.
             np.copyto(eye_out, mean, where=mask)
 
+def process_face_landmarks(gray, color_out, landmark_list):
+    """
+    Image detection function to detect and return segmented mask using landmark_list
+
+    :param gray: grayscale version cv2 image used for detection.
+    :param roi_color_out: color version of cv2 image for output
+    :param landmark_list: list of landmarks to segment
+    :return: None (color_out will be modified)
+
+    """
+
+    # determine the facial landmarks for the face region, then
+    # convert the facial landmark (x, y)-coordinates to a NumPy
+    # array
+    shape = predictor(gray, dlib.rectangle(0,0,gray.shape[0],gray.shape[1]))
+    shape = face_utils.shape_to_np(shape)
+
+    # loop over the facial landmark regions individually
+    for (i, name) in enumerate(FACIAL_LANDMARKS_IDXS.keys()):
+        # grab the (x, y)-coordinates associated with the
+        # face landmark
+        (j, k) = FACIAL_LANDMARKS_IDXS[name]
+        pts = shape[j:k]
+
+        # check if are supposed to draw the jawline
+        if name == "jaw":
+            # since the jawline is a non-enclosed facial region,
+            # just draw lines between the (x, y)-coordinates
+            pass
+
+
+        # otherwise, compute the convex hull of the facial
+        # landmark coordinates points and display it
+        elif name in landmark_list:
+            hull = cv2.convexHull(pts)
+            cv2.fillPoly(color_out, pts=[hull], color=(1,1,1))
+
+
+
+
+
 
 
 def resize_to_square_and_pad_dir(desired_size, raw_img_dir, propcessed_img_dir):
@@ -243,3 +307,28 @@ def pad_to_match_im_dim(im, matching_im):
 
     return new_im
 
+
+def rect_to_bb(rect):
+    # take a bounding predicted by dlib and convert it
+    # to the format (x, y, w, h) as we would normally do
+    # with OpenCV
+    x = rect.left()
+    y = rect.top()
+    w = rect.right() - x
+    h = rect.bottom() - y
+
+    # return a tuple of (x, y, w, h)
+    return (x, y, w, h)
+
+
+def shape_to_np(shape, dtype="int"):
+    # initialize the list of (x, y)-coordinates
+    coords = np.zeros((68, 2), dtype=dtype)
+
+    # loop over the 68 facial landmarks and convert them
+    # to a 2-tuple of (x, y)-coordinates
+    for i in range(0, 68):
+        coords[i] = (shape.part(i).x, shape.part(i).y)
+
+    # return the list of (x, y)-coordinates
+    return coords

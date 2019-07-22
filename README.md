@@ -112,5 +112,6 @@ numpy
 opencv-python
 tensorboard
 tensorflow-gpu
+imutils
 ```
 

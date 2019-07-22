@@ -36,6 +36,7 @@ parser.add_argument("output_dir", help="dir to save outputs", type=str)
 parser.add_argument("--checkpoint_dir", help="dir to load gan checkpoint ", type=str, default='checkpoint')
 parser.add_argument("--use_gan", help="output a detection mask and use a GAN to fill it masked portion", type=str2bool,
                     const=True, default=False, nargs='?')
+parser.add_argument('-l','--landmark_list', nargs='*', help='list of face landmarks to segment out', required=False)
 args = parser.parse_args()
 
 #GAN is trained on 128x128 img size
@@ -74,7 +75,7 @@ if args.use_gan:
 else:
     img = cv2.imread(args.jpg_path_in)
 
-img_out = read_and_return_mod_image(img, args.use_gan)
+img_out = read_and_return_mod_image(img, args.use_gan, args.landmark_list)
 
 if args.use_gan:
     mask = img_out.copy()
