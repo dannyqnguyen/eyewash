@@ -218,10 +218,50 @@ def process_face_landmarks(gray, color_out, landmark_list):
         # landmark coordinates points and display it
         elif name in landmark_list:
             hull = cv2.convexHull(pts)
-            cv2.fillPoly(color_out, pts=[hull], color=(1,1,1))
+            dilation_scale = 1.3
+            M = cv2.moments(hull)
+            cX = int(M["m10"] / M["m00"])
+            cY = int(M["m01"] / M["m00"])
+            hull_scaled = hull.copy()
+            for point in hull_scaled:
+                point[0][0] = point[0][0] - cX
+                point[0][1] = point[0][1] - cY
+            hull_scaled = (hull_scaled * dilation_scale).astype('int32')
+            for point in hull_scaled:
+                point[0][0] = point[0][0] + cX
+                point[0][1] = point[0][1] + cY
 
 
 
+
+            cv2.fillPoly(color_out, pts=[hull_scaled], color=(1,1,1))
+
+
+"""
+void scaleContour(const std::vector<cv::Point>& src, std::vector<cv::Point>& dst, float scale)
+{
+    cv::Rect rct = cv::boundingRect(src);
+
+    std::vector<cv::Point> dc_contour;
+    cv::Point rct_offset(-rct.tl().x, -rct.tl().y);
+    contourOffset(src, dc_contour, rct_offset);
+
+    std::vector<cv::Point> dc_contour_scale(dc_contour.size());
+
+    for (int i = 0; i < dc_contour.size(); i++)
+        dc_contour_scale[i] = dc_contour[i] * scale;
+
+    cv::Rect rct_scale = cv::boundingRect(dc_contour_scale);
+
+    cv::Point offset((rct.width - rct_scale.width) / 2, (rct.height - rct_scale.height) / 2);
+    offset -= rct_offset;
+    dst.clear();
+    dst.resize(dc_contour_scale.size());
+    for (int i = 0; i < dc_contour_scale.size(); i++)
+        dst[i] = dc_contour_scale[i] + offset;
+    }
+
+"""
 
 
 

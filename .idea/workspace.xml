@@ -4,17 +4,13 @@
     <list default="true" id="d062898d-a821-4650-acb9-05a7a57434c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FaceSwap/face_points_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/FaceSwap/face_points_detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_image.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/._model.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/._train-dcgan.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/._utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/complete.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/complete.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dcgan/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcgan/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haarcascade_eye.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/haarcascade_eye.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haarcascade_frontalface_default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/haarcascade_frontalface_default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/image_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resize_image_dir.py" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/resize_image_dir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eyewash/image_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/eyewash/image_utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,38 +19,52 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/create_image.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-435">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eyewash/image_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FaceSwap/face_swap.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/streamlist_demo.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/dcgan/model.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="585">
+                  <caret line="377" column="83" selection-start-line="377" selection-start-column="83" selection-end-line="377" selection-end-column="83" />
+                  <folding>
+                    <element signature="e#298#329#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/streamlist_demo.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="318">
+                  <caret line="126" column="25" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,6 +72,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>jjjkkjjjkkkjkjkjkjkj</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,11 +95,12 @@
         <option value="$PROJECT_DIR$/resize_image_dir.py" />
         <option value="$PROJECT_DIR$/dcgan-completion.tensorflow/model.py" />
         <option value="$PROJECT_DIR$/dcgan-completion.tensorflow/complete.py" />
-        <option value="$PROJECT_DIR$/dcgan/model.py" />
         <option value="$PROJECT_DIR$/FaceSwap/face_points_detection.py" />
         <option value="$PROJECT_DIR$/image_utils.py" />
         <option value="$PROJECT_DIR$/create_image.py" />
         <option value="$PROJECT_DIR$/eyewash/image_utils.py" />
+        <option value="$PROJECT_DIR$/dcgan/model.py" />
+        <option value="$PROJECT_DIR$/streamlist_demo.py" />
       </list>
     </option>
   </component>
@@ -100,7 +116,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -108,10 +123,21 @@
               <item name="eyewash" type="b2602c69:ProjectViewProjectNode" />
               <item name="eyewash" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="eyewash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eyewash" type="462c0819:PsiDirectoryNode" />
+              <item name="dcgan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eyewash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eyewash" type="462c0819:PsiDirectoryNode" />
+              <item name="eyewash" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -136,6 +162,9 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -187,7 +216,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_image.py" />
-      <option name="PARAMETERS" value="data/preprocessed/redeye/051.jpg output_dir --use_gan True" />
+      <option name="PARAMETERS" value="./f3.jpg output_dir --checkpoint_dir checkpoint --use_gan True --landmark_list mouth" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -301,13 +330,13 @@
     <frame x="-2" y="30" width="1444" height="823" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13248767" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13178295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49901614" visible="true" weight="0.32478634" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7751938" weight="0.36752138" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49901614" weight="0.32447666" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.7751938" visible="true" weight="0.36609685" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
@@ -358,16 +387,6 @@
           <url>file://$PROJECT_DIR$/dcgan-completion.tensorflow/complete.py</url>
           <line>38</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/create_image.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/create_image.py</url>
-          <line>63</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -466,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/eyewash_py27/lib/python2.7/shutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/openface/util/align-dlib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
@@ -509,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FaceSwap/face_swap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_exec.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -523,26 +528,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dcgan/model.py">
+    <entry file="file://$PROJECT_DIR$/FaceSwap/face_swap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        <state relative-caret-position="270">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/eyewash_py27/lib/python2.7/shutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eyewash/image_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+        <state relative-caret-position="120">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="393">
+          <caret line="104" column="27" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dcgan/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="377" column="83" selection-start-line="377" selection-start-column="83" selection-end-line="377" selection-end-column="83" />
+          <folding>
+            <element signature="e#298#329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/streamlist_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

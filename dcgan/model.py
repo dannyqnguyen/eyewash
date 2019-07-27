@@ -248,7 +248,7 @@ Initializing a new one.
                     self.save(config.checkpoint_dir, counter)
 
 
-    def complete(self, config, custom_mask=None):
+    def complete(self, config, custom_mask=None, callback=None):
         def make_dir(name):
             # Works on python 2.7, where exist_ok arg to makedirs isn't available.
             p = os.path.join(config.outDir, name)
@@ -374,6 +374,8 @@ Initializing a new one.
                     imgName = os.path.join(config.outDir,
                                            'completed/{:04d}.png'.format(i))
                     save_images(completed[:batchSz,:,:,:], [nRows,nCols], imgName)
+                    if callback is not None:
+                        callback(completed[:batchSz,:,:,:], [nRows,nCols], imgName)
 
                 if config.approach == 'adam':
                     # Optimize single completion with Adam
