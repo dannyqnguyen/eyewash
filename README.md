@@ -2,11 +2,19 @@
 Clean Photos through AI
 
 ## Project Description
+
+
+With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect.
+
+Example of using a current app to remove redeye blemish:
+
 <img src='Static/app.gif' width='430'/> 
 
-With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes.  However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect as seen in the animation above. Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCV HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).   
+Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color.  The implementation uses OpenCV HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).   
 
 ### Sample Results
+
+__Before__ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; __After__
 
 <img src='Static/038.jpg' width='350'/> <img src='Static/038_out.jpg' width='350'/> 
 
@@ -14,7 +22,6 @@ With the advent of powerful cameras within smartphones, photography is becoming 
 
 <img src='Static/1.jpg' width='350'/> <img src='Static/1_out.jpg' width='350'/> 
 
-The input is on the left and the output image is on the right.
 
 A google slide presentation on the project can be found here: [Eyewash](http://tinyurl.com/redeyewash)
 
@@ -26,6 +33,11 @@ Clone this repo:
 git clone https://github.com/dannyqnguyen/eyewash.git eyewash
 cd eyewash
 ```
+Create a new conda enviornment with Python 2.7:
+```
+conda create -n eyewash python=2.7
+conda activate eyewash
+```
 
 Install requirements:
 ```
@@ -35,6 +47,7 @@ pip install -r requirements.txt
 Add the following libraries to your PYTHONPATH. To do this in a conda enviornment, run the following commands:
 
 ```
+conda install conda-build
 conda-develop ./eyewash
 conda-develop ./dcgan
 conda-develop ./FaceSwap
