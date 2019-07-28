@@ -7,3 +7,5 @@ opencv-python
 tensorboard
 tensorflow-gpu
 imutils
+streamlit
+scipy

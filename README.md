@@ -126,5 +126,7 @@ opencv-python
 tensorboard
 tensorflow-gpu
 imutils
+scipy
+streamlit
 ```
 
