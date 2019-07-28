@@ -19,10 +19,10 @@ from eyewash.image_utils import read_and_return_mod_image, pad_to_match_im_dim
 
 
 def complete_callback(img, dims, name):
-    st.write(type(img))
-    st.write(dims)
+    #:st.write(type(img))
+    #st.write(dims)
     st.write(name)
-    st.image(img, clamp=True)
+    st.image(name, clamp=False)
 
 def show_header(name, avatar_image_url, **links):
     links = ' | '.join('[%s](%s)' % (key, url) for key, url in links.items())
@@ -36,9 +36,47 @@ def show_header(name, avatar_image_url, **links):
 show_header('Danny Nguyen', 'https://media.licdn.com/dms/image/C5603AQEv9IViG0KoyQ/profile-displayphoto-shrink_800_800/0?e=1569456000&v=beta&t=46yBuKaKQtrSdLer7jJpgcIOMV2iLjCjgNhynUJY54M',
     github='https://github.com/dannyqnguyen/eyewash',
     linkedin='https://www.linkedin.com/in/dannyqnguyen/',
-    resume='https://www.linkedin.com/in/dannyqnguyen/'
+    resume='https://www.dropbox.com/s/ods9gvnj19nc6jx/Danny_Nguyen_FinalResume.pdf?dl=1'
 )
 
+st.write(
+    """
+    ## Eyewash
+    With the advent of powerful cameras within smartphones, photography is becoming more commonplace. With this increased usage, more people will find themselves with an amazing picture and be disappointed due to it being ruined by unwanted blemishes. However, current ways to remove blemishes such as redeye require manual work to apply the appropriate effect.
+    
+    Eyewash is a package to automatically remove blemishes from portrait photos. Users no long have to manually select pixels as well as create more realistic fixes to the blemishes rather than filling in with a specific color. The implementation uses OpenCV HAAR cascades to detect redeye and remove the affected pixels through image infilling with Deep Convolutional Generative Adversarial Networks (DCGANs).  This functionality is extended by selecting various facial features to  detect and replace.
+
+    """
+         )
+status = st.empty()
+status.error("Please select an image to run and which facial features to replace. After setting the desired number of iterations, press the 'Run GAN' button to generate images.")
+
+ex_img1 = cv2.cvtColor(cv2.imread('./data/redeye_samples/14.jpg'), cv2.COLOR_BGR2RGB)
+ex_img2 = cv2.cvtColor(cv2.imread('./data/redeye_samples/2.jpg'), cv2.COLOR_BGR2RGB)
+ex_img3 = cv2.cvtColor(cv2.imread('./data/redeye_samples/24.jpg'), cv2.COLOR_BGR2RGB)
+
+st.image([ex_img1, ex_img2, ex_img3], caption= ['1','2','3'], width = 200)
+
+run_images = [
+    './data/redeye_samples/14.jpg',
+    './data/redeye_samples/2.jpg',
+    './data/redeye_samples/24.jpg'
+    ]
+image_index = st.selectbox('Selected Image:', ['1', '2', '3'])
+run_image = run_images[image_index]
+
+st.write('<small>Facial Features to Replace:</small>')
+facial_features = [
+    "mouth",
+    "left_eye",
+    "right_eye",
+    "nose",
+]
+
+selected_features = []
+for feature in facial_features:
+    if st.checkbox(feature):
+        selected_features.append(feature)
 
 def str2bool(v):
     """
@@ -55,11 +93,11 @@ def str2bool(v):
 
 
 args = argparse.Namespace(
-    jpg_path_in = './data/redeye_samples/14.jpg',
+    jpg_path_in = run_image,
     output_dir = './output_dir/',
     checkpoint_dir = 'checkpoint',
     use_gan = True,
-    landmark_list = ['mouth']
+    landmark_list = selected_features
 )
 
 
@@ -103,6 +141,8 @@ if args.use_gan:
     append_name = '_aligned'
     img_aligned_path = join(args.output_dir, filename_split[0] + append_name + '.png')
     #move aligned input to output folder
+    if os.path.exists(ALIGN_OUT_DIR):
+        os.system('rf -rfv %s' % ALIGN_OUT_DIR)
     move(align_img_copy_path, img_aligned_path)
     img = cv2.imread(img_aligned_path)
     #cleanup intermediate directory and file
@@ -124,6 +164,7 @@ img_out_path = join(args.output_dir, filename_split[0] + append_name + filename_
 cv2.imwrite(img_out_path, img_out, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 
 if args.use_gan:
+    nIter = st.slider('number of iterations', 1000, 200, 5000, 100)
     gan_args = argparse.Namespace(
         approach='adam',
         lr = .01,
@@ -134,7 +175,7 @@ if args.use_gan:
         hmcEps = 0.001,
         hmcL = 100,
         hmcAnneal = 1,
-        nIter = 3000,
+        nIter = nIter,
         imgSize = IMGSIZE,
         lam = 0.1,
         checkpointDir = args.checkpoint_dir,
@@ -153,15 +194,21 @@ if args.use_gan:
 
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
+    config.allow_soft_placement = True
     st.text('About to create session')
-    if st.button('run_gan'):
+    if st.button('Run GAN'):
         waiting_message = st.warning('Computing image, please wait 30 seconds')
 
+        @st.cache(ignore_hash=True)
+        def create_dc_gan(config):
+            tf_session = tf.Session(config=config)
+            dcgan = DCGAN(tf_session, image_size=gan_args.imgSize,
+                        batch_size=min(64, len(gan_args.imgs)),
+                        checkpoint_dir=gan_args.checkpointDir, lam=gan_args.lam)
+            return tf_session, dcgan
 
-        with tf.Session(config=config) as sess:
-            dcgan = DCGAN(sess, image_size=gan_args.imgSize,
-                          batch_size=min(64, len(gan_args.imgs)),
-                          checkpoint_dir=gan_args.checkpointDir, lam=gan_args.lam)
+        tf_session, dcgan = create_dc_gan(config)
+        with tf_session.as_default():
             dcgan.complete(gan_args, img_out, callback=complete_callback)
 
         gan_out_dir = join(args.output_dir, 'completed')
@@ -178,7 +225,6 @@ if args.use_gan:
         cv2.imwrite(gan_pad_filepath, new_im, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 
         waiting_message.success('done')
-        st.image(new_im)
 
         result = subprocess.call([
             'python',
@@ -188,5 +234,10 @@ if args.use_gan:
             '--dst',
             args.jpg_path_in,
             '--out',
-            output_filepath])
+            output_filepath,
+            '--no_debug_window'
+            #'True'
+            ]
+        )
 
+        st.image(output_filepath)
