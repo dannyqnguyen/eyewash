@@ -49,20 +49,20 @@ st.write(
     """
          )
 status = st.empty()
-status.error("Please select an image to run and which facial features to replace. After setting the desired number of iterations, press the 'Run GAN' button to generate images.")
+status.error("Before using, please use menu in top right to clear cache and re-run to start a new session. To use, select an image to run and which facial features to replace. After setting the desired number of iterations, press the 'Run GAN' button to generate images.")
 
 ex_img1 = cv2.cvtColor(cv2.imread('./data/redeye_samples/14.jpg'), cv2.COLOR_BGR2RGB)
 ex_img2 = cv2.cvtColor(cv2.imread('./data/redeye_samples/2.jpg'), cv2.COLOR_BGR2RGB)
 ex_img3 = cv2.cvtColor(cv2.imread('./data/redeye_samples/24.jpg'), cv2.COLOR_BGR2RGB)
 
-st.image([ex_img1, ex_img2, ex_img3], caption= ['1','2','3'], width = 200)
+st.image([ex_img1, ex_img2, ex_img3], caption= ['1','2','3'], width = 150)
 
 run_images = [
     './data/redeye_samples/14.jpg',
     './data/redeye_samples/2.jpg',
     './data/redeye_samples/24.jpg'
     ]
-image_index = st.selectbox('Selected Image:', ['1', '2', '3'])
+image_index = st.selectbox('Select an image using arrow in dropdown box below:', ['1', '2', '3'])
 run_image = run_images[image_index]
 
 st.write('<small>Facial Features to Replace:</small>')
@@ -240,4 +240,5 @@ if args.use_gan:
             ]
         )
 
-        st.image(output_filepath)
+        display_paths = [run_image, output_filepath]
+        st.image(display_paths, ["Before","After"], width = 200)

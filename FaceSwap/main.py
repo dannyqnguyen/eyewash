@@ -10,7 +10,7 @@ from face_points_detection import face_points_detection
 from face_swap import warp_image_2d, warp_image_3d, mask_from_points, apply_mask, correct_colours, transformation_from_points
 
 
-def select_face(im, r=10):
+def select_face(im, r=10, use_first_face=False):
     faces = face_detection(im)
 
     if len(faces) == 0:
@@ -18,6 +18,8 @@ def select_face(im, r=10):
         exit(-1)
 
     if len(faces) == 1:
+        bbox = faces[0]
+    elif use_first_face:
         bbox = faces[0]
     else:
         bbox = []
@@ -69,9 +71,9 @@ if __name__ == '__main__':
     dst_img = cv2.imread(args.dst)
 
     # Select src face
-    src_points, src_shape, src_face = select_face(src_img)
+    src_points, src_shape, src_face = select_face(src_img, use_first_face=True)
     # Select dst face
-    dst_points, dst_shape, dst_face = select_face(dst_img)
+    dst_points, dst_shape, dst_face = select_face(dst_img, use_first_face=True)
 
     h, w = dst_face.shape[:2]
     
