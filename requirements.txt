@@ -1,7 +1,7 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 dlib
-imageio
+imageio==2.6
 numpy
 opencv-python
 tensorboard

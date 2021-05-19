@@ -13,8 +13,8 @@ from glob import glob
 import tensorflow as tf
 from six.moves import xrange
 
-from ops import *
-from utils import *
+from .ops import *
+from .utils import *
 
 import cv2
 def show_img(img):
@@ -375,7 +375,7 @@ Initializing a new one.
                                            'completed/{:04d}.png'.format(i))
                     save_images(completed[:batchSz,:,:,:], [nRows,nCols], imgName)
                     if callback is not None:
-                        callback(completed[:batchSz,:,:,:], [nRows,nCols], imgName)
+                        callback(inverse_transform(completed[:batchSz,:,:,:]), i, loss)
 
                 if config.approach == 'adam':
                     # Optimize single completion with Adam

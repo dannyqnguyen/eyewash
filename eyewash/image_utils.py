@@ -41,7 +41,7 @@ FACIAL_LANDMARKS_IDXS = OrderedDict([
 ])
 
 # Define function that will do detection
-def read_and_return_mod_image(img, create_mask=False, landmark_list =[]):
+def read_and_return_mod_image(img, create_mask=False, landmark_list =[], process_red_eyes=True):
     """ 
     Main function to read an image and return a modified img. If create_mask is False, 
     modification will be to fix red pixels with black. If create_mask is True, then return
@@ -77,10 +77,11 @@ def read_and_return_mod_image(img, create_mask=False, landmark_list =[]):
             roi_color = img[y:y + h, x:x + w]
             roi_color_out = img_out[y:y + h, x:x + w]
             # Detect eyes now
-            process_eyes(roi_gray_image, roi_color, roi_color_out, create_mask)
+            if process_red_eyes:
+                process_eyes(roi_gray_image, roi_color, roi_color_out, create_mask)
             #process_blue(roi_gray_image, roi_color, roi_color_out, create_mask)
 
-    else:
+    elif process_red_eyes:
         process_eyes(gray_image, img, img_out, create_mask)
         #process_blue(gray_image, img, img_out, create_mask)
     if create_mask and landmark_list:
